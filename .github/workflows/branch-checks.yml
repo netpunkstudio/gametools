@@ -1,0 +1,16 @@
+---
+name: PR checks
+
+on:
+  pull_request:
+
+jobs:
+  source_branch:
+    name: Source branch checks
+    runs-on: [self-hosted]
+    if: ${{ (github.base_ref == 'main') && (github.head_ref != 'dev') && (startsWith(github.head_ref, 'hotfix-') != true) }}
+    steps:
+      - name: Check source branch
+        run: |
+          echo "ERROR: You can only merge to main from dev or a hotfix branch."
+          exit 1

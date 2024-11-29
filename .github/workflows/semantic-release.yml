@@ -1,0 +1,39 @@
+name: release
+on:
+  push:
+    branches:
+      - main
+
+#
+# Required to be able to call the REST API to create both the
+# new tag and release.
+#
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Perform a semantic release
+    runs-on: ubuntu-latest
+    steps:
+      - name: action-release
+        uses: mateothegreat/action-release@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          owner: netpunkstudio
+          repo: NetPunkToolkit
+          increment: patch
+          default: v0.0.0
+          prefix: v
+          branch: main
+          release_name: MVP
+          release_body: |
+            Netpunk Toolkit is a collection of tools to provide a suite of Godot tools that cover functionality that's boring to build.  
+            Start menus, loading screens, controller mapping, a save/ load game framework, but most of all in depth accessibility features. 
+          release_notes: true
+      - name: Print the current and next version using outputs
+        uses: actions/checkout@v2
+        with:
+          repo: action-release
+          current_version: ${{ steps.release.outputs.current_version }}
+          next_version: ${{ steps.release.outputs.next_version }}

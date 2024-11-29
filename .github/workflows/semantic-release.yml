@@ -21,7 +21,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: netpunkstudio
-          repo: NetPunkToolkit
+          repo: gametools
           increment: patch
           prefix: v
           branch: main

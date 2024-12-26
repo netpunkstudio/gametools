@@ -4,4 +4,4 @@ class_name NetpunkGameToolsResource
 ## the defaults for a fresh run of the game. 
 
 ## Path to folder where settings will be stored. 
-@export var basepath: String
+@export var player_settings_path: String

@@ -1,9 +1,15 @@
-[gd_scene format=3 uid="uid://b3altoyldociw"]
+[gd_scene load_steps=2 format=3 uid="uid://b3altoyldociw"]
 
-[node name="SettingBuilder" type="Control"]
-layout_mode = 3
+[ext_resource type="PackedScene" uid="uid://blijtdbt1jrxm" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_tab_bar.tscn" id="1_7728j"]
+
+[node name="SettingBuilder" type="TabContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
+
+[node name="Plugin" parent="." instance=ExtResource("1_7728j")]
+layout_mode = 2
+metadata/_tab_index = 0

@@ -28,7 +28,6 @@ func export_settings() -> Array:
 	return [settings_key, child_dict]
 
 func update_title(value: String) -> void:
-	print('here')
 	%Title.text = value
 
 func update_addbtn(value: bool) -> void:

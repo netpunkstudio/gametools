@@ -8,8 +8,4 @@ func export_settings():
 			child_dict[child_data[0]] = child_data[1]
 		else: 
 			print_debug("Settings name collision")
-	print(JSON.stringify([name, child_dict], '\t'))
 	return [name, child_dict]
-
-func _on_button_pressed() -> void:
-	export_settings()

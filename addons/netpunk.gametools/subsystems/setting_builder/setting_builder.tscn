@@ -16,18 +16,7 @@ script = ExtResource("1_n73ek")
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Button" type="Button" parent="Plugin"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 547.0
-offset_right = 91.0
-offset_bottom = 600.0
-text = "save
-"
-
 [node name="Gameplay" parent="." instance=ExtResource("1_7728j")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
-
-[connection signal="pressed" from="Plugin/Button" to="." method="_on_button_pressed"]

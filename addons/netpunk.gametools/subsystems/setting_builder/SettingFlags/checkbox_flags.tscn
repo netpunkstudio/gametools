@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bq1f4krxxhm7w"]
+
+[node name="CheckboxFlags" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Selected: "
+fit_content = true
+autowrap_mode = 0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 2

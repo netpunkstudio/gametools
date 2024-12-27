@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b0uoc062enq8u"]
+
+[node name="ColorPickerFlags" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Default Color"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

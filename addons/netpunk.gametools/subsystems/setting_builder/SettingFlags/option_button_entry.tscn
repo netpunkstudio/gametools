@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ba85lyg77kctk"]
+
+[node name="OptionButtonEntry" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "Option Entry"
+expand_to_text_length = true

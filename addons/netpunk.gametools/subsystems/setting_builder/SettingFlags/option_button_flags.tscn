@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://41wmltftamvd"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/option_button_flags.gd" id="1_hlk81"]
+
+[node name="OptionButtonFlags" type="VBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_hlk81")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "Store as String:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AddOption" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "   +   "
+
+[connection signal="pressed" from="AddOption" to="." method="_on_add_option_pressed"]

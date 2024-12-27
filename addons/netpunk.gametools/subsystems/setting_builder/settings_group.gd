@@ -1,21 +1,21 @@
 @tool
-extends VBoxContainer
+extends PanelContainer
 
 @export var settings_key: String:
 	set(value):
 		settings_key = value
 		update_title(settings_key)
 
-@export var user_expandable: bool = true:
+@export var user_editable: bool = true:
 	set(value):
-		user_expandable = value
-		update_addbtn(user_expandable)
+		user_editable = value
+		update_editable()
 
 var setting_value = preload("res://addons/netpunk.gametools/subsystems/setting_builder/setting_value.tscn")
 
 func _ready() -> void:
 	update_title(settings_key)
-	#call_deferred("update_addbtn", user_expandable)
+	#call_deferred("update_editable")
 
 func export_settings() -> Array:
 	var child_dict = {}
@@ -30,10 +30,14 @@ func export_settings() -> Array:
 func update_title(value: String) -> void:
 	%Title.text = value
 
-func update_addbtn(value: bool) -> void:
-	%AddButton.visible = value
-	%AddButton.disabled = value
-
+func update_editable() -> void:
+	%AddButton.visible = user_editable
+	%AddButton.disabled = user_editable
+	
+	%Title.visible = not user_editable
+	
+	%EditableTitle.visible = user_editable
+	%EditableTitle.editable = user_editable
 
 func _on_add_button_pressed() -> void:
 	var new_setting = setting_value.instantiate()

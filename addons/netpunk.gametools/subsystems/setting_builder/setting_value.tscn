@@ -1,21 +1,52 @@
-[gd_scene format=3 uid="uid://cqmrch63oebeh"]
+[gd_scene load_steps=2 format=3 uid="uid://cqmrch63oebeh"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/setting_value.gd" id="1_35hfm"]
 
 [node name="SettingValue" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+script = ExtResource("1_35hfm")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SettingName" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
 bbcode_enabled = true
 text = "Setting Name"
 fit_content = true
 autowrap_mode = 0
 
+[node name="EditableSettingName" type="LineEdit" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+placeholder_text = "Setting Name"
+expand_to_text_length = true
+
 [node name="VSeparator" type="VSeparator" parent="."]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SettingType" type="OptionButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SelectedSettings" type="VBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="VBoxContainer/SelectedSettings"]
+layout_mode = 2
+
+[connection signal="item_selected" from="VBoxContainer/SettingType" to="." method="_on_option_button_item_selected"]

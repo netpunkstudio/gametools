@@ -45,8 +45,6 @@ func update_editable() -> void:
 
 func update_name() -> void:
 	%SettingName.text = setting_name
-	%EditableSettingName.text = setting_name
-
 
 func _on_option_button_item_selected(index: int) -> void:
 	setting_type = widget_list.get(%SettingType.get_item_text(index).to_upper().replace(' ', '_'))
@@ -90,4 +88,11 @@ func _on_menu_item_pressed(id: int) -> void:
 			queue_free()
 
 func export_settings() -> Array:
-	return [setting_name, %SelectedSettings.get_children()[0].export_settings()[1]]
+	if get_children().size() > 0:
+		return [setting_name, %SelectedSettings.get_children()[0].export_settings()[1]]
+	else:
+		return []
+
+
+func _on_editable_setting_name_text_changed(new_text: String) -> void:
+	setting_name = new_text

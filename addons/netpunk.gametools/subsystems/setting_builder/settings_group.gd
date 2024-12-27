@@ -11,8 +11,6 @@ extends PanelContainer
 		user_editable = value
 		update_editable()
 
-
-
 var setting_value = preload("res://addons/netpunk.gametools/subsystems/setting_builder/setting_value.tscn")
 
 func _ready() -> void:
@@ -25,9 +23,10 @@ func export_settings() -> Array:
 	for child in %SettingsContents.get_children():
 		var child_data = child.export_settings()
 		if child_data[0] not in child_dict.keys():
-			child_dict[child_data[0]] = child_data[child_data[1]]
+			child_dict[child_data[0]] = child_data[1]
 		else: 
 			print_debug("Settings name collision")
+			
 	return [settings_key, child_dict]
 
 func update_title(value: String) -> void:
@@ -53,3 +52,6 @@ func _on_menu_item_pressed(id: int) -> void:
 	match selection:
 		"Delete Group":
 			queue_free()
+
+func _on_editable_title_text_changed(new_text: String) -> void:
+	settings_key = new_text

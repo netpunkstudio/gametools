@@ -1,12 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bq1f4krxxhm7w"]
+[gd_scene load_steps=2 format=3 uid="uid://p4722dnvxemf"]
 
-[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/checkbox_flags.gd" id="1_qr53a"]
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/check_button_flags.gd" id="1_byvl5"]
 
 [node name="CheckboxFlags" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
-script = ExtResource("1_qr53a")
+script = ExtResource("1_byvl5")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2

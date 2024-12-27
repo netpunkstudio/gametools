@@ -1,9 +1,12 @@
-[gd_scene format=3 uid="uid://b0uoc062enq8u"]
+[gd_scene load_steps=2 format=3 uid="uid://b0uoc062enq8u"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/color_picker_flags.gd" id="1_8ds65"]
 
 [node name="ColorPickerFlags" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
+script = ExtResource("1_8ds65")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 2

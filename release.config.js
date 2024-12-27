@@ -8,7 +8,7 @@ const config = {
             {
                 "replacements": [
                     {
-                        "files": ["addons/plugin.cfg"],
+                        "files": ["addons/netpunk.gametools/plugin.cfg"],
                         "from": "version=\".*\"",
                         "to": "version=\"${nextRelease.version}\"",
                     "results": 
@@ -28,7 +28,7 @@ const config = {
         [
             "@semantic-release/git",
             {
-                "assets": ["addons/plugin.cfg"],
+                "assets": ["addons/netpunk.gametools/plugin.cfg"],
                 "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
             }
         ],

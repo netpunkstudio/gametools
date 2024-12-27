@@ -11,11 +11,14 @@ extends PanelContainer
 		user_editable = value
 		update_editable()
 
+
+
 var setting_value = preload("res://addons/netpunk.gametools/subsystems/setting_builder/setting_value.tscn")
 
 func _ready() -> void:
 	update_title(settings_key)
 	#call_deferred("update_editable")
+	%MenuButton.get_popup().connect("id_pressed", _on_menu_item_pressed)
 
 func export_settings() -> Array:
 	var child_dict = {}
@@ -38,7 +41,15 @@ func update_editable() -> void:
 	
 	%EditableTitle.visible = user_editable
 	%EditableTitle.editable = user_editable
+	
+	%MenuButton.get_popup().set_item_disabled(0, not user_editable)
 
 func _on_add_button_pressed() -> void:
 	var new_setting = setting_value.instantiate()
 	%SettingsContents.add_child(new_setting)
+
+func _on_menu_item_pressed(id: int) -> void:
+	var selection = %MenuButton.get_popup().get_item_text(id)
+	match selection:
+		"Delete Group":
+			queue_free()

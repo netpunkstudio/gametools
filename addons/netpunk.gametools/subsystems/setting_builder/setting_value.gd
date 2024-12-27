@@ -29,12 +29,15 @@ func _ready() -> void:
 		%SettingType.add_item(type.capitalize())
 	%SettingType.selected = -1
 	clear_selected_settings()
+	%MenuButton.get_popup().connect("id_pressed", _on_menu_item_pressed)
 
 func update_editable() -> void:
 	%SettingName.visible = not user_editable
 	
 	%EditableSettingName.visible = user_editable
 	%EditableSettingName.editable = user_editable
+	
+	%MenuButton.get_popup().set_item_disabled(0, not user_editable)
 
 func update_name() -> void:
 	%SettingName.text = setting_name
@@ -75,3 +78,19 @@ func build_settings() -> void:
 func clear_selected_settings() -> void:
 	for child in %SelectedSettings.get_children():
 		child.queue_free()
+
+func _on_menu_item_pressed(id: int) -> void:
+	var selection = %MenuButton.get_popup().get_item_text(id)
+	match selection:
+		"Delete Setting":
+			queue_free()
+
+func export_settings() -> Array:
+	var child_dict = {}
+	for child in %SelectedSettings.get_children():
+		var child_data = child.export_settings()
+		if child_data[0] not in child_dict.keys():
+			child_dict[child_data[0]] = child_data[child_data[1]]
+		else: 
+			print_debug("Settings name collision")
+	return [setting_name, child_dict]

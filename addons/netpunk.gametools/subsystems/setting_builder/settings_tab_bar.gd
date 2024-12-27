@@ -1,8 +1,6 @@
 @tool
 extends TabBar
 
-@export var settings_key: String
-
 var settings_group = preload("res://addons/netpunk.gametools/subsystems/setting_builder/settings_group.tscn")
 
 func export_settings():
@@ -13,7 +11,7 @@ func export_settings():
 			child_dict[child_data[0]] = child_data[child_data[1]]
 		else: 
 			print_debug("Settings name collision")
-	return [settings_key, child_dict]
+	return [name, child_dict]
 
 func _on_add_group_pressed() -> void:
 	var new_group = settings_group.instantiate()

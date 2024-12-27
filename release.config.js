@@ -14,7 +14,7 @@ const config = {
                     "results": 
                     [
                         {
-                            "file": "foo/__init__.py",
+                            "file": "addons/netpunk.gametools/plugin.cfg",
                             "hasChanged": true,
                             "numMatches": 1,
                             "numReplacements": 1,

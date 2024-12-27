@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/spin_box_flags.gd" id="1_1ceub"]
 
-[node name="NumberBarFlags" type="GridContainer"]
+[node name="SpinBoxFlags" type="GridContainer"]
 offset_right = 135.0
 offset_bottom = 136.0
 columns = 2
@@ -16,6 +16,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Min" type="SpinBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
@@ -26,6 +27,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Max" type="SpinBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
@@ -36,6 +38,7 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Step" type="SpinBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
@@ -46,4 +49,5 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="Value" type="SpinBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2

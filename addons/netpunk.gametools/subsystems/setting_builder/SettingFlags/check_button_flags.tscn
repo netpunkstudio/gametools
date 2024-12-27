@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/check_button_flags.gd" id="1_byvl5"]
 
-[node name="CheckboxFlags" type="HBoxContainer"]
+[node name="CheckButtonFlags" type="HBoxContainer"]
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
@@ -15,4 +15,5 @@ fit_content = true
 autowrap_mode = 0
 
 [node name="CheckBox" type="CheckBox" parent="."]
+unique_name_in_owner = true
 layout_mode = 2

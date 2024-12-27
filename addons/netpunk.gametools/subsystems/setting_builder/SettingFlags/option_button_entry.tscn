@@ -9,6 +9,7 @@ grow_horizontal = 2
 script = ExtResource("1_juyr2")
 
 [node name="LineEdit" type="LineEdit" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Option Entry"
 expand_to_text_length = true

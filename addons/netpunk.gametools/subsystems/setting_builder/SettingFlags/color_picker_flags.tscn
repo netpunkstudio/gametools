@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0uoc062enq8u"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/color_picker_flags.gd" id="1_8ds65"]
+
+[node name="ColorPickerFlags" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_8ds65")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Default Color"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3sp6tn8siekn"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/spin_box_flags.gd" id="1_1ceub"]
+
+[node name="SpinBoxFlags" type="GridContainer"]
+offset_right = 135.0
+offset_bottom = 136.0
+columns = 2
+script = ExtResource("1_1ceub")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Min:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Min" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Max:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Max" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Step:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Step" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 2
+bbcode_enabled = true
+text = "Value:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Value" type="SpinBox" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

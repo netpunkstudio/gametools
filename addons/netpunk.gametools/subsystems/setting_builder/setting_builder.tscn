@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3altoyldociw"]
+
+[ext_resource type="PackedScene" uid="uid://blijtdbt1jrxm" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_tab_bar.tscn" id="1_7728j"]
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/setting_builder.gd" id="1_n73ek"]
+
+[node name="SettingBuilder" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("1_n73ek")
+
+[node name="Plugin" parent="." instance=ExtResource("1_7728j")]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Button" type="Button" parent="Plugin"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 547.0
+offset_right = 91.0
+offset_bottom = 600.0
+text = "save
+"
+
+[node name="Gameplay" parent="." instance=ExtResource("1_7728j")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[connection signal="pressed" from="Plugin/Button" to="." method="_on_button_pressed"]

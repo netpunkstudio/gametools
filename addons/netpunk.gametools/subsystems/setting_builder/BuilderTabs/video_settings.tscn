@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1gu5gd51uhaj"]
+
+[ext_resource type="PackedScene" uid="uid://blijtdbt1jrxm" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_tab_bar.tscn" id="1_0lyfd"]
+[ext_resource type="PackedScene" uid="uid://dhxs08pidwfoo" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_group.tscn" id="2_xb2f2"]
+[ext_resource type="PackedScene" uid="uid://cqmrch63oebeh" path="res://addons/netpunk.gametools/subsystems/setting_builder/setting_value.tscn" id="3_3jp88"]
+
+[node name="Video" instance=ExtResource("1_0lyfd")]
+
+[node name="SettingsGroup" parent="PanelContainer/VBoxContainer/Groups" index="0" instance=ExtResource("2_xb2f2")]
+layout_mode = 2
+settings_key = "Video Settings"
+user_editable = false
+
+[node name="SettingsGroup" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup" index="1" instance=ExtResource("2_xb2f2")]
+layout_mode = 2
+settings_key = "Window Mode"
+user_editable = false
+
+[node name="EditableTitle" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup/VBoxContainer/HBoxContainer" index="1"]
+visible = false
+editable = false
+
+[node name="Title" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup/VBoxContainer/HBoxContainer" index="2"]
+text = "Window Mode"
+
+[node name="MenuButton" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup/VBoxContainer/HBoxContainer" index="4"]
+popup/item_0/disabled = true
+
+[node name="SettingValue" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup/VBoxContainer/SettingsContents" index="0" instance=ExtResource("3_3jp88")]
+layout_mode = 2
+user_editable = false
+setting_type = 4
+
+[node name="AddButton" parent="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup/VBoxContainer" index="2"]
+visible = false
+
+[node name="AddGroup" parent="PanelContainer/VBoxContainer" index="1"]
+visible = false
+
+[editable path="PanelContainer/VBoxContainer/Groups/SettingsGroup/SettingsGroup"]

@@ -43,7 +43,6 @@ layout_mode = 2
 text = "..."
 item_count = 1
 popup/item_0/text = "Delete Group"
-popup/item_0/id = 0
 
 [node name="SettingsContents" type="VBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true

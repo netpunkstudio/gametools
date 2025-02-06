@@ -14,18 +14,16 @@ layout_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "Store as String:"
+text = "Stored as String:"
 fit_content = true
 autowrap_mode = 0
-
-[node name="CheckBox" type="CheckBox" parent="HBoxContainer"]
-layout_mode = 2
 
 [node name="Options" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 
 [node name="AddOption" type="Button" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 text = "   +   "

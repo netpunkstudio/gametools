@@ -15,7 +15,7 @@ var setting_value = preload("res://addons/netpunk.gametools/subsystems/setting_b
 
 func _ready() -> void:
 	update_title(settings_key)
-	#call_deferred("update_editable")
+	call_deferred("update_editable")
 	%MenuButton.get_popup().connect("id_pressed", _on_menu_item_pressed)
 
 func export_settings() -> Array:
@@ -34,7 +34,7 @@ func update_title(value: String) -> void:
 
 func update_editable() -> void:
 	%AddButton.visible = user_editable
-	%AddButton.disabled = user_editable
+	%AddButton.disabled = not user_editable
 	
 	%Title.visible = not user_editable
 	

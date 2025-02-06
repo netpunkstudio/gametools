@@ -29,11 +29,9 @@ func _ready() -> void:
 	for type in widget_list.keys():
 		%SettingType.add_item(type.capitalize())
 	%SettingType.selected = -1
-	clear_selected_settings()
 	%MenuButton.get_popup().connect("id_pressed", _on_menu_item_pressed)
 	update_name()
 	update_editable()
-	build_settings()
 	%SettingType.clear()
 
 func update_editable() -> void:
@@ -45,6 +43,9 @@ func update_editable() -> void:
 	%MenuButton.get_popup().set_item_disabled(0, not user_editable)
 	
 	%SettingType.visible = user_editable
+	
+	if user_editable:
+		build_settings()
 
 func update_name() -> void:
 	%SettingName.text = setting_name

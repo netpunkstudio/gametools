@@ -2,6 +2,11 @@ extends VBoxContainer
 
 const OPTION_BUTTON_ENTRY = preload("res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/option_button_entry.tscn")
 
+@export var user_editable: bool = true
+
+func _ready() -> void:
+	%AddOption.visible = user_editable
+
 func _on_add_option_pressed() -> void:
 	var new_entry = OPTION_BUTTON_ENTRY.instantiate()
 	%Options.add_child(new_entry)

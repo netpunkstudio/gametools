@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://f644p4uxv7wg"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/text_flags.gd" id="1_4vhew"]
+
+[node name="TextFlags" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_4vhew")
+
+[node name="Text" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

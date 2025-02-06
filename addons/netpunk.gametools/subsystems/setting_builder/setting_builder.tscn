@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3altoyldociw"]
+[gd_scene load_steps=4 format=3 uid="uid://b3altoyldociw"]
 
 [ext_resource type="PackedScene" uid="uid://blijtdbt1jrxm" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_tab_bar.tscn" id="1_7728j"]
 [ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/setting_builder/setting_builder.gd" id="1_n73ek"]
+[ext_resource type="PackedScene" uid="uid://dxeg3lc2h2kx8" path="res://addons/netpunk.gametools/subsystems/setting_builder/BuilderTabs/plugin_settings.tscn" id="2_dc5gy"]
 
 [node name="SettingBuilder" type="TabContainer"]
 anchors_preset = 15
@@ -9,12 +10,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
 script = ExtResource("1_n73ek")
 
-[node name="Plugin" parent="." instance=ExtResource("1_7728j")]
+[node name="Plugin" parent="." instance=ExtResource("2_dc5gy")]
 layout_mode = 2
-metadata/_tab_index = 0
 
 [node name="Video" parent="." instance=ExtResource("1_7728j")]
 visible = false

@@ -12,7 +12,7 @@ extends HBoxContainer
 		call_deferred("update_editable")
 
 enum widget_list {CHECKBOX, CHECK_BUTTON, COLOR_PICKER, OPTION_BUTTON, 
-	SLIDER, SPIN_BOX}
+	SLIDER, SPIN_BOX, TEXT}
 
 @export var setting_type: widget_list
 
@@ -23,17 +23,18 @@ const OPTION_BUTTON_ENTRY = preload("res://addons/netpunk.gametools/subsystems/s
 const OPTION_BUTTON_FLAGS = preload("res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/option_button_flags.tscn")
 const SLIDER_FLAGS = preload("res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/slider_flags.tscn")
 const SPIN_BOX_FLAGS = preload("res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/spin_box_flags.tscn")
+const TEXT_FLAGS = preload("res://addons/netpunk.gametools/subsystems/setting_builder/SettingFlags/text_flags.tscn")
 
 func _ready() -> void:
-	update_name()
-	update_editable()
-	build_settings()
-	%SettingType.clear()
 	for type in widget_list.keys():
 		%SettingType.add_item(type.capitalize())
 	%SettingType.selected = -1
 	clear_selected_settings()
 	%MenuButton.get_popup().connect("id_pressed", _on_menu_item_pressed)
+	update_name()
+	update_editable()
+	build_settings()
+	%SettingType.clear()
 
 func update_editable() -> void:
 	%SettingName.visible = not user_editable
@@ -42,6 +43,8 @@ func update_editable() -> void:
 	%EditableSettingName.editable = user_editable
 	
 	%MenuButton.get_popup().set_item_disabled(0, not user_editable)
+	
+	%SettingType.visible = user_editable
 
 func update_name() -> void:
 	%SettingName.text = setting_name
@@ -76,6 +79,10 @@ func build_settings() -> void:
 			clear_selected_settings()
 			var new_number = SPIN_BOX_FLAGS.instantiate()
 			%SelectedSettings.add_child(new_number)
+		"Text":
+			clear_selected_settings()
+			var new_text = TEXT_FLAGS.instantiate()
+			%SelectedSettings.add_child(new_text)
 
 func clear_selected_settings() -> void:
 	for child in %SelectedSettings.get_children():

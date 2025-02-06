@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37xrj0xpp8ar"]
+
+[ext_resource type="PackedScene" uid="uid://blijtdbt1jrxm" path="res://addons/netpunk.gametools/subsystems/setting_builder/settings_tab_bar.tscn" id="1_xlgku"]
+
+[node name="AudioSettings" instance=ExtResource("1_xlgku")]

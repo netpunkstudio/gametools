@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drspkr8bm2n1q"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/options/widgets/resolution_picker.gd" id="1_rspkr"]
+
+[node name="ResolutionPicker" type="OptionButton"]
+script = ExtResource("1_rspkr")

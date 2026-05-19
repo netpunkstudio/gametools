@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbvsldr2h8m4w"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/options/widgets/bus_volume_slider.gd" id="1_bvsldr"]
+
+[node name="BusVolumeSlider" type="HSlider"]
+script = ExtResource("1_bvsldr")

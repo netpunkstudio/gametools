@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfpslm9cr5n3t"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/options/widgets/fps_limit.gd" id="1_fpslm"]
+
+[node name="FpsLimit" type="SpinBox"]
+script = ExtResource("1_fpslm")

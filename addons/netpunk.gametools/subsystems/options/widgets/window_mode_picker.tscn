@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwnmpdpkr4j1o"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/options/widgets/window_mode_picker.gd" id="1_wmpkr"]
+
+[node name="WindowModePicker" type="OptionButton"]
+script = ExtResource("1_wmpkr")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://dldscrn4t7m2x"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/loading/loading_screen.gd" id="1_ldscrn"]
+
+[node name="LoadingScreen" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_ldscrn")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BottomBar" type="VBoxContainer" parent="."]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_bottom = -16.0
+grow_vertical = 0
+size_flags_horizontal = 3
+
+[node name="LoadingLabel" type="Label" parent="BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+text = "Loading..."
+
+[node name="ProgressBar" type="ProgressBar" parent="BottomBar"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0

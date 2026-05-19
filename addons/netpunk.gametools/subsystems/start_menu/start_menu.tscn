@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://dstrtmnu8r4k1q"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/start_menu/start_menu.gd" id="1_stmnu"]
+
+[node name="StartMenu" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stmnu")
+
+[node name="Background" type="TextureRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NewGameButton" type="Button" parent="CenterContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Continue"
+
+[node name="LoadGameButton" type="Button" parent="CenterContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/ButtonContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/ButtonContainer/NewGameButton" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/LoadGameButton" to="." method="_on_load_game_pressed"]
+[connection signal="pressed" from="CenterContainer/ButtonContainer/QuitButton" to="." method="_on_quit_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvsynct4g7k2p"]
+
+[ext_resource type="Script" path="res://addons/netpunk.gametools/subsystems/options/widgets/vsync_toggle.gd" id="1_vsync"]
+
+[node name="VsyncToggle" type="CheckButton"]
+script = ExtResource("1_vsync")

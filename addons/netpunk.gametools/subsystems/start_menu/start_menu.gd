@@ -1,15 +1,5 @@
 extends Control
 
-## Metadata key to read from the last used save slot (e.g. "chapter").
-@export var background_meta_key: String = "chapter"
-
-## Maps metadata values to background textures.
-## Keys are Strings; values are Texture2D resources.
-@export var backgrounds: Dictionary = {}
-
-## Shown when no save exists or no key matches.
-@export var default_background: Texture2D
-
 ## Emitted when the player presses New Game.
 signal new_game_requested
 
@@ -46,9 +36,25 @@ func _on_quit_pressed() -> void:
 
 
 func _resolve_background() -> Texture2D:
+	var meta_key: String = ProjectSettings.get_setting(
+		"gametools/loading/background_meta_key", "chapter")
+	var keys: PackedStringArray = ProjectSettings.get_setting(
+		"gametools/loading/background_keys", PackedStringArray())
+	var paths: PackedStringArray = ProjectSettings.get_setting(
+		"gametools/loading/background_paths", PackedStringArray())
+
 	var meta := SaveManager.get_last_slot_meta()
-	if not meta.is_empty() and meta.has(background_meta_key):
-		var val: Variant = meta[background_meta_key]
-		if backgrounds.has(val):
-			return backgrounds[val]
-	return default_background
+	if not meta.is_empty() and meta.has(meta_key):
+		var val := str(meta[meta_key])
+		var idx := keys.find(val)
+		if idx != -1 and idx < paths.size():
+			var path := paths[idx]
+			if not path.is_empty() and ResourceLoader.exists(path):
+				return load(path) as Texture2D
+
+	var default_path: String = ProjectSettings.get_setting(
+		"gametools/loading/default_background", "")
+	if not default_path.is_empty() and ResourceLoader.exists(default_path):
+		return load(default_path) as Texture2D
+
+	return null

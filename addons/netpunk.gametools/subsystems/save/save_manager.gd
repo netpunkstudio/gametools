@@ -16,9 +16,9 @@ var encryption_key: String = ""
 ## causes that save to be flagged as possibly_incompatible.
 var version_file_path: String = "res://version.json"
 
-const _BASE_DIR := "user://gametools/"
-const _SETTINGS_FILE := "user://gametools/settings.json"
-const _SLOTS_DIR := "user://gametools/slots/"
+const _BASE_DIR := "user://"
+const _SETTINGS_FILE := "user://settings.json"
+const _SLOTS_DIR := "user://slots/"
 
 var _version_config: Dictionary = {}
 var _version_config_loaded: bool = false

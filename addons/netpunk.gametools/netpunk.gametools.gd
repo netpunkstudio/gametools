@@ -2,6 +2,7 @@
 extends EditorPlugin
 
 const _SAVE_MANAGER_PATH := "res://addons/netpunk.gametools/subsystems/save/save_manager.gd"
+const _MOD_MANAGER_PATH := "res://addons/netpunk.gametools/subsystems/mods/mod_manager.gd"
 const _OPTIONS_MANAGER_PATH := "res://addons/netpunk.gametools/subsystems/options/options_manager.gd"
 const _LOADING_MANAGER_PATH := "res://addons/netpunk.gametools/subsystems/loading/loading_manager.gd"
 const _CONFIG_DOCK_SCRIPT := "res://addons/netpunk.gametools/editor/plugin_config_dock.gd"
@@ -10,8 +11,11 @@ var _config_dock: Control
 
 
 func _enter_tree() -> void:
-	# Registration order matters: SaveManager first, others depend on it.
+	# Registration order matters: SaveManager first (base dependency),
+	# ModManager second (reads saved enabled states, mounts PCKs early),
+	# then the rest.
 	add_autoload_singleton("SaveManager", _SAVE_MANAGER_PATH)
+	add_autoload_singleton("ModManager", _MOD_MANAGER_PATH)
 	add_autoload_singleton("OptionsManager", _OPTIONS_MANAGER_PATH)
 	add_autoload_singleton("LoadingManager", _LOADING_MANAGER_PATH)
 
@@ -28,4 +32,5 @@ func _exit_tree() -> void:
 
 	remove_autoload_singleton("LoadingManager")
 	remove_autoload_singleton("OptionsManager")
+	remove_autoload_singleton("ModManager")
 	remove_autoload_singleton("SaveManager")
